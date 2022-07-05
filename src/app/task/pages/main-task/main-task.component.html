@@ -1,0 +1,49 @@
+
+  <nav>
+    <div class="nav-wrapper">
+      <span  class="brand-logo">MEAN Task App</span>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><button (click)="logout()" class="btn waves-effect waves-ligth blue">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="container">
+
+  <form [formGroup]="miFormulario" (ngSubmit)="create()">
+    <div class="row">
+      <h3>Crear nueva tarea</h3>
+      <div class="input-field col s6">
+        <input formControlName="newTask" id="create" type="text" class="validate">
+        <label class="active" for="create">Nueva tarea</label>
+      </div>
+
+      <div class="input-field col s6">
+        <button class="btn waves-effect waves-ligth blue">Crear</button>
+      </div>
+    </div>
+  </form>
+
+
+  <table>
+    <thead>
+      <tr>
+          <th>Nombre</th>
+          <th>Actualizar</th>
+          <th>Eliminar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let tarea of tasks">
+        <td>{{tarea.nombre}}</td>
+        <td>
+          <button (click)="update(tarea)" class="btn waves-effect waves-ligth #ffe57f amber accent-4">Actualizar</button>
+        </td>
+        <td>
+          <button (click)="delete(tarea._id)" class="btn waves-effect waves-ligth red">Eliminar</button>
+        </td>
+    </tbody>
+  </table>
+</div>
+
